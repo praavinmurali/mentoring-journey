@@ -1,14 +1,19 @@
 # Daily Progress Log — Day 01
 
-**Date:28 June 2026
-**Epic & Task:** Epic & Task:** P1.1 — HTML5 + CSS Flexbox/Grid + Tailwind crash course
-**Day segment (if multi-day task):** Seg _ of _ · GitHub Issue #_ (OPEN by design)
-
+**Date:29 June 2026
+**Epic & Task:P1.1-D1 — GenAI Intro + Web Dev Foundations (S1, S3)
+**Day segment (if multi-day task):** Seg 1 of 1 · GitHub Issue #147 (OPEN by design)
+**Branch: day01-p1.1-fresh
 ---
 
 ## What I completed today
 
 - Built:
+AI Prompting CheatSheet saved to /notes/ai-cheatsheet.pdf
+5 practice prompts written in /notes/PROMPT_EXAMPLES.md
+Can explain: GenAI, prompt engineering, how internet works — in own words
+Notes committed: chore(P1.1-D1): genai intro + web dev foundations notes
+progress/day-01.md morning + evening entries committed
 - Commit hash / link:
 - Checkbox ticked in issue: Yes / No
 
