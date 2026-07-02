@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peak Performance Fitness Club - Membership Registration</title>
+</head>
+
+<body>
+
+    <h1>Peak Performance Fitness Club</h1>
+
+    <p>
+        Thank you for choosing Peak Performance Fitness Club. Complete the
+        membership registration form below to begin your fitness journey.
+    </p>
+
+    <form action="/register" method="post">
+
+        <h2>Personal Information</h2>
+
+        <p>Please provide your basic information.</p>
+
+        <label for="full-name">Full Name</label>
+        <br>
+        <input
+            type="text"
+            id="full-name"
+            name="full_name"
+            placeholder="Enter your full name"
+            required>
+
+        <br><br>
+
+        <label for="email">Email Address</label>
+        <br>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            required>
+
+        <br><br>
+
+        <label for="phone">Phone Number</label>
+        <br>
+        <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Enter your phone number"
+            required>
+
+        <br><br>
+
+        <label for="age">Age</label>
+        <br>
+        <input
+            type="number"
+            id="age"
+            name="age"
+            min="16"
+            max="80"
+            required>
+
+        <br><br>
+
+        <label for="dob">Date of Birth</label>
+        <br>
+        <input
+            type="date"
+            id="dob"
+            name="date_of_birth"
+            required>
+
+        <br><br>
+
+        <h2>Membership Details</h2>
+
+        <p>Select the membership plan that best fits your goals.</p>
+
+        <label for="membership-plan">Membership Plan</label>
+        <br>
+        <select id="membership-plan" name="membership_plan" required>
+
+            <option value="">
+                -- Select a Membership Plan --
+            </option>
+
+            <option value="basic">
+                Basic Membership
+            </option>
+
+            <option value="standard">
+                Standard Membership
+            </option>
+
+            <option value="premium">
+                Premium Membership
+            </option>
+
+            <option value="elite">
+                Elite Membership
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <label for="fitness-goal">Primary Fitness Goal</label>
+        <br>
+        <select id="fitness-goal" name="fitness_goal">
+
+            <option value="">
+                -- Select Your Goal --
+            </option>
+
+            <option value="weight-loss">
+                Weight Loss
+            </option>
+
+            <option value="muscle-gain">
+                Muscle Gain
+            </option>
+
+            <option value="general-fitness">
+                General Fitness
+            </option>
+
+            <option value="strength-training">
+                Strength Training
+            </option>
+
+        </select>
+
+        <br><br>
+
+        <h2>Additional Information</h2>
+
+        <p>
+            Tell us about your previous fitness experience or any special
+            requirements.
+        </p>
+
+        <label for="message">Message</label>
+        <br>
+        <textarea
+            id="message"
+            name="message"
+            rows="6"
+            cols="50"
+            placeholder="Tell us about your fitness experience or any questions you have."></textarea>
+
+        <br><br>
+
+        <button type="submit">
+            Register Membership
+        </button>
+
+    </form>
+
+    <form>
+
+        <p> 
+
+            <input type="email" name="email" placeholder="enter email"
+
+        </p>
+
+    </form>
+
+</body>
+
+</html>
