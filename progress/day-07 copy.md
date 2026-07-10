@@ -1,7 +1,7 @@
 # Daily Progress Log — Day 02
-**Date:9 July 2026
-**Epic & Task:** P1.4-D2 — Bootstrap 5 + Deploy Bootstrap Landing Page (S11)
-**Day segment (if multi-day task):** Seg 2 of 2 · GitHub Issue #153 (OPEN by design)
+**Date:10 July 2026
+**Epic & Task:** P1.5-D1 — JS Basics + Functions (S12 + S13)
+**Day segment (if multi-day task):** Seg 1 of 3 · GitHub Issue #154 (OPEN by design)
 ###############################################################################
 **course transcript:**
 Section 12 — Getting Started with JavaScript
@@ -362,15 +362,1161 @@ Music Player = new Audio('file.mp3').play().
 
 
 ############################################################################
-**Date:08 July 2026
-**Epic & Task:**P2.2-D6 — Two-Way-Binding + Lifting State Up (Section 4, part 2)
-**Day segment (if multi-day task):** Seg 1 of 5 · GitHub Issue #252 (OPEN by design)
+**Date:10 July 2026
+**Epic & Task:**P2.2-D8 — Vanilla CSS + Inline Styles + Dynamic Styling (Section 6, part 1)
+**Day segment (if multi-day task):** Seg 3 of 5 · GitHub Issue #254 (OPEN by design)
 ***************************course trans***********************************
+# Styling React Components with Vanilla CSS & Dynamic Styling
 
+## Definition
+
+Styling in React means adding colors, spacing, fonts, layouts, and other visual designs to React components.
+
+React supports multiple styling methods, such as:
+
+- Vanilla CSS
+- Inline Styles
+- CSS Modules
+- Styled Components
+- Tailwind CSS
+
+This lesson focuses on **Vanilla CSS** and **Dynamic Styling**. :contentReference[oaicite:0]{index=0}
+
+---
+
+# A Component Styled with Vanilla CSS
+
+## Definition
+
+Vanilla CSS means writing normal CSS files (`.css`) and importing them into React components.
+
+Example:
+
+```jsx
+import "./Header.css";
+
+function Header() {
+  return <h1>Welcome</h1>;
+}
+```
+
+---
+
+## Key Concepts
+
+- Create a CSS file.
+- Write normal CSS.
+- Import the CSS file into the component.
+- Vite injects the CSS into the webpage automatically.
+- Multiple CSS files can be used.
+
+---
+
+## Important Terms
+
+| Term | Meaning |
+|------|---------|
+| Vanilla CSS | Normal CSS without extra libraries |
+| CSS File | File containing CSS rules |
+| import | Includes a CSS file inside a React component |
+| Vite | Tool that automatically loads CSS into the browser |
+
+---
+
+## Workflow / Process
+
+```text
+Create Component
+        │
+        ▼
+Create CSS File
+        │
+        ▼
+Import CSS File
+        │
+        ▼
+Run React App
+        │
+        ▼
+Styles are Applied
+```
+
+---
+
+## Example
+
+```css
+h1 {
+  color: blue;
+}
+```
+
+```jsx
+import "./Header.css";
+
+function Header() {
+  return <h1>Hello</h1>;
+}
+```
+
+---
+
+## Key Takeaways
+
+- Vanilla CSS is easy to use.
+- React supports normal CSS files.
+- CSS files are imported into components.
+
+---
+
+## Quick Revision
+
+- Normal CSS
+- Import CSS file
+- Vite loads CSS automatically
+
+---
+
+# Can Explain the Scoping Problem with Plain CSS Files
+
+## Definition
+
+Plain CSS is **global**.
+
+Even if a CSS file is imported into one component, its rules can affect **other components** too. :contentReference[oaicite:1]{index=1}
+
+---
+
+## Example
+
+### Header.css
+
+```css
+p {
+  color: red;
+}
+```
+
+### Header.jsx
+
+```jsx
+import "./Header.css";
+
+<p>Header Paragraph</p>
+```
+
+### Another Component
+
+```jsx
+<p>Login Paragraph</p>
+```
+
+Both paragraphs become red.
+
+Why?
+
+Because CSS is **global**.
+
+---
+
+## Scoping Problem
+
+```text
+Header.css
+
+↓
+
+p {
+ color:red;
+}
+
+↓
+
+Every <p> on the page becomes red
+```
+
+---
+
+## Important Terms
+
+| Term | Meaning |
+|------|---------|
+| Global CSS | CSS affects the entire application |
+| Scoped CSS | CSS affects only one component |
+| Collision | Two components accidentally use the same CSS rule |
+
+---
+
+## Advantages of Vanilla CSS
+
+- Easy to write
+- Familiar syntax
+- Separate CSS and JSX
+- Designers can work on CSS separately
+
+---
+
+## Disadvantages
+
+- No component scoping
+- CSS class collisions
+- Harder to manage in large projects
+
+---
+
+## Key Takeaways
+
+- CSS is global.
+- Components can accidentally share styles.
+- This is called a CSS collision.
+
+---
+
+## Quick Revision
+
+- Vanilla CSS is global.
+- Rules are not scoped.
+- Same selector can affect many components.
+
+---
+
+# Dynamic Inline Styles Applied Conditionally Based on State/Props
+
+## Definition
+
+Inline styles allow CSS to be written directly inside JSX.
+
+React uses the `style` prop.
+
+```jsx
+<h1 style={{ color: "red" }}>
+```
+
+Notice:
+
+- `style`
+- Double curly braces `{{ }}`
+- JavaScript object
+
+---
+
+## Example
+
+```jsx
+<h1 style={{ color: "green" }}>
+  Hello
+</h1>
+```
+
+---
+
+## Dynamic Inline Styles
+
+Styles can change depending on state or props.
+
+Example:
+
+```jsx
+<input
+  style={{
+    backgroundColor: isInvalid
+      ? "red"
+      : "white"
+  }}
+/>
+```
+
+If
+
+```text
+isInvalid = true
+```
+
+Background becomes
+
+```text
+Red
+```
+
+Otherwise
+
+```text
+White
+```
+
+---
+
+## Workflow
+
+```text
+State Changes
+      │
+      ▼
+Condition Checked
+      │
+      ▼
+Choose Style
+      │
+      ▼
+React Updates UI
+```
+
+---
+
+## Important Terms
+
+| Term | Meaning |
+|------|---------|
+| Inline Style | CSS written directly in JSX |
+| style Prop | React property for inline CSS |
+| Conditional Styling | Applying styles only when a condition is true |
+| Ternary Operator | Shortcut for if...else |
+
+---
+
+## Example
+
+```jsx
+const isValid = false;
+
+<input
+  style={{
+    backgroundColor: isValid
+      ? "white"
+      : "red"
+  }}
+/>
+```
+
+Output
+
+```text
+Invalid input
+
+↓
+
+Red Background
+```
+
+---
+
+## Advantages
+
+- Easy to add dynamic styles.
+- Styles only affect one element.
+- Great for simple conditions.
+
+---
+
+## Disadvantages
+
+- CSS and JSX are mixed together.
+- Repeating styles causes duplication.
+- Difficult to reuse styles.
+
+---
+
+## Key Takeaways
+
+- Use `style={{ }}` for inline styles.
+- React expects a JavaScript object.
+- Inline styles are scoped to one element.
+- Conditional styling is easy using the ternary operator.
+
+---
+
+## Quick Revision
+
+- `style={{ color: "red" }}`
+- Uses JavaScript object
+- Great for dynamic styles
+- Only affects one element
+
+---
+
+# Dynamic Styling with CSS Classes
+
+## Definition
+
+Instead of changing styles directly, React can add or remove CSS classes based on a condition. :contentReference[oaicite:2]{index=2}
+
+---
+
+## Example
+
+```jsx
+<input
+  className={
+    isInvalid ? "invalid" : undefined
+  }
+/>
+```
+
+When
+
+```text
+isInvalid = true
+```
+
+React adds
+
+```text
+class="invalid"
+```
+
+Otherwise
+
+```text
+No extra class
+```
+
+---
+
+## Multiple Classes
+
+```jsx
+<label
+  className={`label ${
+    isInvalid ? "invalid" : ""
+  }`}
+>
+  Email
+</label>
+```
+
+Result
+
+```text
+label invalid
+```
+
+or
+
+```text
+label
+```
+
+---
+
+## Workflow
+
+```text
+User Input
+      │
+      ▼
+Check Condition
+      │
+      ▼
+Choose CSS Class
+      │
+      ▼
+React Applies Class
+```
+
+---
+
+## Important Terms
+
+| Term | Meaning |
+|------|---------|
+| className | React version of HTML class |
+| Template Literal | String using backticks (` `) |
+| Conditional Class | Class added only if a condition is true |
+| Ternary Operator | Chooses one of two values |
+
+---
+
+## Key Takeaways
+
+- Use `className` for CSS classes.
+- Add classes conditionally.
+- Use template literals for multiple classes.
+- Prefer CSS classes for reusable styling.
+
+---
+
+## Quick Revision
+
+- `className`
+- Template literals
+- Conditional CSS classes
+- Better for reusable styles
+
+---
+
+# Progress Notes
+
+**File:** `/notes/p2-day-08.md`
+
+## Completed
+
+- ✅ Styled components with Vanilla CSS
+- ✅ Understood CSS import in React
+- ✅ Learned that Vanilla CSS is global
+- ✅ Understood CSS scoping problems
+- ✅ Learned inline styling
+- ✅ Applied dynamic inline styles
+- ✅ Applied conditional CSS classes
+- ✅ Combined permanent and conditional classes
+
+---
+
+# Final Summary
+
+- React supports multiple styling techniques.
+- Vanilla CSS is simple but global.
+- Global CSS can cause style collisions.
+- Inline styles are scoped to a single element.
+- Conditional styling can be done using inline styles or CSS classes.
+- CSS classes are generally better for reusable and maintainable styling.
 ################################################################################
 
 ############################################################################
-**Date:08 July 2026
-**Epic & Task:**P3.1-D5 — Merge Arrays + Intersection + Union (GFG #26,#27,#28 + Codedamn)
-**Day segment (if multi-day task):** Seg 5 of 5 · GitHub Issue #187 (OPEN by design)
+**Date:10 July 2026
+**Epic & Task:**P3.2-D8 — Count Occurrences of a Character (GFG #21 + Codedamn)
+**Day segment (if multi-day task):** Seg 3 of 5 · GitHub Issue #190 (OPEN by design)
 ***************************course trans***********************************
+# Count Character in a String (Beginner Notes)
+
+## Code
+
+``` javascript
+function countChar(str, char) {
+    return str.split(char).length - 1;
+}
+
+console.log(countChar("GeeksForGeeks", "G"));
+```
+
+## What Does This Program Do?
+
+It counts how many times a letter appears in a word.
+
+Example: - Word: GeeksForGeeks - Letter: G - Answer: 2
+
+## Step 1
+
+``` javascript
+function countChar(str, char) {
+```
+
+Creates a function named **countChar**.
+
+-   `str` = word
+-   `char` = letter to count
+
+## Step 2
+
+``` javascript
+str.split(char)
+```
+
+Cuts the word wherever the letter appears.
+
+Example:
+
+``` text
+GeeksForGeeks
+
+↓
+
+["", "eeksFor", "eeks"]
+```
+
+## Step 3
+
+``` javascript
+str.split(char).length
+```
+
+Counts the pieces.
+
+Result:
+
+``` text
+3
+```
+
+## Step 4
+
+``` javascript
+length - 1
+```
+
+Pieces are always one more than the number of matching letters.
+
+``` text
+3 - 1 = 2
+```
+
+## Step 5
+
+``` javascript
+return str.split(char).length - 1;
+```
+
+Returns the answer.
+
+## Step 6
+
+``` javascript
+console.log(countChar("GeeksForGeeks", "G"));
+```
+
+Output:
+
+``` text
+2
+```
+
+## Complete Flow
+
+``` text
+Word
+ ↓
+split()
+ ↓
+Count pieces
+ ↓
+Subtract 1
+ ↓
+Print answer
+```
+
+## Memory Trick
+
+-   split() → Cut the word
+-   length → Count the pieces
+-   -1 → Count of the letter
+
+
+
+
+
+
+What is the question asking?
+
+Imagine two friends have the same letter.
+
+Example:
+
+abaccb
+
+Let's write the positions.
+
+Index	0	1	2	3	4	5
+Letter	a	b	a	c	c	b
+
+Now look at a
+
+a  b  a
+0  1  2
+
+Between the two a's, there is only one letter (b).
+
+So,
+
+Distance of a = 1
+
+Now look at b
+
+b  a  c  c  b
+1  2  3  4  5
+
+Between them are
+
+a
+c
+c
+
+There are 3 letters.
+
+So
+
+Distance of b = 3
+
+Now look at c
+
+c  c
+3  4
+
+Between them
+
+Nothing
+
+Distance
+
+0
+
+The distance array is
+
+[
+1,3,0,5,0,0,0,0...
+]
+
+Meaning
+
+a → 1
+
+b → 3
+
+c → 0
+
+d → 5
+
+...
+
+Since a, b, and c all match the correct distances,
+
+Answer:
+
+true
+Simple Code
+function checkDistances(s, distance) {
+
+    let first = {};
+
+    for (let i = 0; i < s.length; i++) {
+
+        let letter = s[i];
+
+        if (first[letter] === undefined) {
+
+            first[letter] = i;
+
+        } else {
+
+            let gap = i - first[letter] - 1;
+
+            let index = letter.charCodeAt(0) - 97;
+
+            if (gap !== distance[index]) {
+
+                return false;
+
+            }
+
+        }
+
+    }
+
+    return true;
+
+}
+
+console.log(checkDistances(
+    "abaccb",
+    [1,3,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+));
+
+Output
+
+true
+Step 1
+function checkDistances(s, distance) {
+
+We make a machine called
+
+checkDistances
+
+It needs
+
+s
+
+↓
+
+The word
+
+and
+
+distance
+
+↓
+
+The expected gaps
+Step 2
+let first = {};
+
+This is an empty notebook.
+
+We will remember where each letter appears first.
+
+At the beginning
+
+Notebook
+
+(empty)
+Step 3
+for (let i = 0; i < s.length; i++)
+
+This means
+
+Read the word one letter at a time.
+
+For
+
+abaccb
+
+The computer visits
+
+Index 0
+
+↓
+
+a
+
+↓
+
+Index 1
+
+↓
+
+b
+
+↓
+
+Index 2
+
+↓
+
+a
+
+↓
+
+Index 3
+
+↓
+
+c
+
+↓
+
+Index 4
+
+↓
+
+c
+
+↓
+
+Index 5
+
+↓
+
+b
+Step 4
+let letter = s[i];
+
+Take the current letter.
+
+Example
+
+When
+
+i = 0
+
+Then
+
+letter = "a";
+Step 5
+if(first[letter]===undefined)
+
+Ask
+
+"Have I seen this letter before?"
+
+At first
+
+Notebook
+
+(empty)
+
+So
+
+a
+
+↓
+
+Not found
+
+Store it.
+
+first["a"]=0;
+
+Notebook
+
+a → 0
+
+Next
+
+b
+
+Notebook
+
+a → 0
+
+b → 1
+Step 6
+
+Later we find another a
+
+Notebook already has
+
+a → 0
+
+Now current position is
+
+2
+
+Computer calculates
+
+let gap = i - first[letter] - 1;
+
+That becomes
+
+2 - 0 - 1
+
+=
+
+1
+
+Meaning
+
+There is 1 letter between them.
+Step 7
+
+Now we must know
+
+Which position in the distance array belongs to a?
+
+let index = letter.charCodeAt(0)-97;
+
+This looks scary 😄
+
+Actually
+
+a
+
+↓
+
+97
+
+So
+
+97-97
+
+=
+
+0
+
+Meaning
+
+a uses distance[0]
+
+For
+
+b
+
+↓
+
+98-97
+
+=
+
+1
+
+So
+
+b uses distance[1]
+
+For
+
+c
+
+↓
+
+99-97
+
+=
+
+2
+
+Easy table
+
+Letter	Array Position
+a	0
+b	1
+c	2
+d	3
+Step 8
+if(gap!==distance[index])
+
+Compare
+
+Gap
+
+1
+
+Expected
+
+distance[0]
+
+↓
+
+1
+
+Are they same?
+
+Yes
+
+Continue.
+
+Next
+
+Letter
+
+b
+
+Gap
+
+3
+
+Expected
+
+distance[1]
+
+↓
+
+3
+
+Correct.
+
+Next
+
+Letter
+
+c
+
+Gap
+
+0
+
+Expected
+
+distance[2]
+
+↓
+
+0
+
+Correct.
+
+Step 9
+
+If any letter is wrong
+
+return false;
+
+Example
+
+aa
+
+Distance says
+
+1
+
+Actual
+
+0
+
+Computer says
+
+false
+Step 10
+
+If every letter is correct
+
+return true;
+
+Output
+
+true
+Complete Flow
+Word
+
+abaccb
+
+      │
+
+Read one letter
+
+      │
+
+Remember first position
+
+      │
+
+See second same letter
+
+      │
+
+Count letters in between
+
+      │
+
+Check distance array
+
+      │
+
+Correct?
+
+   Yes ↓       No ↓
+
+Continue     Return false
+
+      │
+
+All correct
+
+      │
+
+Return true
+Example 2
+checkDistances(
+"aa",
+[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+)
+
+Indexes
+
+Index	0	1
+Letter	a	a
+
+Gap
+
+0
+
+Expected
+
+1
+
+Not equal
+
+Output
+
+false
+Easy Trick to Remember
+
+Imagine every letter has two houses 🏠🏠.
+
+The computer:
+
+Finds the first house.
+Finds the second house.
+Counts how many houses are between them.
+Checks if that number matches the rule in the distance array.
+If every letter follows the rule, it returns true. Otherwise, it returns false.
+
+
+
+
