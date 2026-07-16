@@ -13,7 +13,7 @@ const exchangeMode = document.getElementById("exchange-mode");
 const toggleBtns = document.querySelectorAll(".toggle-btn");
 
 // Use a free API key from ExchangeRate-API
-const apiKey = "YOUR_API_KEY_HERE";
+const apiKey = API_KEY3; // Replace with your own API
 
 toggleBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
